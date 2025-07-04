@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo_test
-subtitle: ''
-description: ''
+title: zanyyan的漂流瓶
+subtitle: 'ぶどう色の海'
+description: 'A blog about my life, thoughts, and experiences.'
 keywords:
-author: John Doe
-language: en
-timezone: ''
+author: Yan Zan
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://www.zanyan.xyz
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -96,9 +96,16 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+# theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# Comments
+# comments:
+#   disable: false
+#   provider: Disqus
+#   disqus_shortname: your-disqus-shortname
