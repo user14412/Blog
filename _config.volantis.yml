@@ -105,6 +105,9 @@ navbar:
     - name: 关于
       icon: fa-solid fa-user
       url: about/
+    - name: 暗黑模式
+      icon: fa-solid fa-moon
+      toggle: darkmode
   search: 搜索文章...   # Search bar placeholder
 ############################### Navigation Bar ############################### > end
 
@@ -261,7 +264,7 @@ article:
       # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
       # https://volantis.js.org/advanced-settings/#多人协同
       author:
-        avatar: https://i.imgur.com/3mQeOXJ.png # 使用您在主配置中设置的头像
+        avatar: https://i.imgur.com/gSQdasz.jpeg # 使用您在主配置中设置的头像
         name: 昝研
         url: https://www.zanyan.xyz
       # 文章创建日期
@@ -640,24 +643,23 @@ site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [aplayer, social, license, analytics, info, copyright]
   social:
-    - icon: #fa-solid fa-rss
-      url:
-    # or
-    - img:
-      url:
-    # or
-    - avatar:
-      url:
+    - icon: fa-solid fa-envelope
+      url: mailto:2585432372@qq.com
+    - icon: fab fa-github
+      url: https://github.com/user14412
+    - icon: fab fa-bilibili
+      url: https://space.bilibili.com/480211402
   # site source
-  source: https://github.com/volantis-x/volantis-docs/
+  source: https://github.com/user14412
   # analytics using leancloud
   analytics: >
-    <span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
-    <span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
+    <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span>
+    <span id="busuanzi_container_site_uv">访客数 <span id="busuanzi_value_site_uv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span>
   # site copyright
-  copyright: '[Copyright © since 2017 XXX](/)'
+  copyright: '[Copyright © 2025 昝研](/) | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
+  info: '[Powered by Hexo](https://hexo.io) | [Theme Volantis](https://volantis.js.org)'
 ############################### Site Footer ############################### > end
 
 ############################### Plugins ############################### > start
@@ -805,7 +807,7 @@ plugins:
   # APlayer is only available in mainland China.
   # APlayer config: https://github.com/metowolf/MetingJS
   aplayer:
-    enable: #true
+    enable: true
     js:
       aplayer: volantis-static/libs/aplayer/dist/APlayer.min.js # https://unpkg.com/aplayer@1.10/dist/APlayer.min.js
       meting: volantis-static/libs/meting/dist/Meting.min.js # https://unpkg.com/meting@2.0/dist/Meting.min.js
@@ -816,7 +818,7 @@ plugins:
     id: 3175833810    # song id / playlist id / album id / search keyword
     # Optional
     fixed: false      # enable fixed mode
-    theme: '#1BCDFC'  # main color
+    theme: '#6366f1'  # main color - 使用主题色
     autoplay: false   # audio autoplay
     order: list       # player play order, values: 'list', 'random'
     loop: all         # player loop play, values: 'all', 'one', 'none'
@@ -844,7 +846,7 @@ plugins:
   #   icon: fa-solid fa-moon # 可自定义
   #   toggle: darkmode
   darkmode:
-    enable: #true
+    enable: true
 
   # 旧版 Internet Explorer 淘汰行动
   # https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support
@@ -1051,10 +1053,10 @@ rightmenus:
 
 # 自定义右键菜单
 rightmenu:
-  enable: false
+  enable: true
   faicon: fa              # 公共图标类型 fa fal fa-solid fa-duotone
   # hr: 分割线, music: 音乐控制器
-  layout: [home, hr, help, examples, contributors, hr, source_docs, source_theme, hr, print, darkmode, reading, music]
+  layout: [home, hr, reading, print, darkmode, hr, music, hr, help, source_theme]
   ### 可选功能项 ###
   print:                  # 只有文章页才允许自定义打印
     name: 打印页面
@@ -1073,21 +1075,9 @@ rightmenu:
     alwaysShow: true
   ### 自定义菜单 ###
   help:
-    name: 常见问题
+    name: 使用帮助
     icon: fa fa-question
-    url: https://volantis.js.org/faqs/
-  examples:
-    name: 示例博客
-    icon: fa fa-rss
-    url: https://volantis.js.org/examples/
-  contributors:
-    name: 加入社区
-    icon: fa fa-fan fa-spin
-    url: https://volantis.js.org/contributors/
-  source_docs:
-    name: 本站源码
-    icon: fa fa-code-branch
-    url: https://github.com/volantis-x/volantis-docs/
+    url: https://volantis.js.org/
   source_theme:
     name: 主题源码
     icon: fa fa-code-branch
@@ -1290,7 +1280,7 @@ custom_css:
 
 ############################### Analytics ############################### > start
 analytics:
-  busuanzi: #volantis-static/libs/busuanzi/js/busuanzi.pure.mini.js #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
+  busuanzi: volantis-static/libs/busuanzi/js/busuanzi.pure.mini.js #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
   leancloud: # 请使用自己的 id & key 以防止数据丢失
     app_id: # u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI
     app_key: # jfHtEKVE24j0IVCGHbvuFClp
