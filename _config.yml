@@ -9,7 +9,10 @@ description: 'A blog about my life, thoughts, and experiences.'
 keywords: 学习 生活
 author: 昝研
 email: 2585432372@qq.com
-language: zh-Hans
+language:
+  - zh-CN
+  - en
+  - zh-TW
 timezone: 'Asia/Shanghai'
 
 social:
