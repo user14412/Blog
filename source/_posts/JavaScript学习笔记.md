@@ -251,5 +251,5 @@ function sum(...numbers) {
 - [ ] 研究前端框架（Vue/React）
 
 ---
-*持续学习，持续进步！编程之路永无止境。* 🚀title: JavaScript学习笔记
----
+
+*持续学习，持续进步！编程之路永无止境。* 🚀

@@ -318,11 +318,7 @@ article:
 comments:
   title: <i class='fa-solid fa-comments'></i> 评论
   subtitle: 欢迎留下您的想法和建议 💭
-  service: # 如需开启评论，请取消注释下方配置并填写相关信息
-  # 推荐使用 giscus，步骤：
-  # 1. 在 https://giscus.app/ 配置您的仓库
-  # 2. 取消下方注释并填写配置信息
-  # service: giscus
+  service: giscus # 启用 giscus 评论系统
   # 可选评论系统 #
 
   # artalk
@@ -353,11 +349,16 @@ comments:
   # https://github.com/laymonage/giscus
   giscus:
     # 以下配置按照 yml 格式增删填写即可
-    # repo: xxx/xxx
-    # repo-id: xxx
-    # category: xxx
-    # category-id: xxx
-    # mapping: "pathname"
+    repo: user14412/Blog
+    repo-id: R_kgDOPGr9sQ
+    category: General
+    category-id: DIC_kwDOPGr9sc4Csedq
+    mapping: "pathname"
+    strict: "0"
+    reactions-enabled: "1"
+    emit-metadata: "0"
+    input-position: "bottom"
+    lang: "zh-CN"
     # reactions-enabled: "1"
     # emit-metadata: "0"
     # lang: "zh-CN"
@@ -688,6 +689,13 @@ plugins:
     css: volantis-static/libs/@fancyapps/ui/dist/fancybox.css # https://unpkg.com/@fancyapps/ui@4.0.12/dist/fancybox.css
     js: volantis-static/libs/@fancyapps/ui/dist/fancybox.umd.js # https://unpkg.com/@fancyapps/ui@4.0.12/dist/fancybox.umd.js
   ################ optional plugins ################
+  # Google Analytics
+  google_analytics:
+    enable: true
+    gtag_id: G-6N524CRK5H # 请替换为您的 Google Analytics 测量 ID，格式如：G-XXXXXXXXXX
+    # 如果您有 gtag_id，请在此填写，否则留空
+    # 获取方式：https://analytics.google.com/ -> 数据流 -> 查看代码说明
+  
   # issues api
   sitesjs:
     enable: true
