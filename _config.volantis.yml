@@ -83,12 +83,12 @@ scroll_smooth: true
 navbar:
   visiable: auto # always, auto
   logo: # choose [img] or [icon + title]
-    img: volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+    img: https://i.imgur.com/gSQdasz.jpeg # 使用您的头像作为导航栏logo
     icon:
     title:
   menu:
-    - name: 博客
-      icon: fa-solid fa-rss
+    - name: 首页
+      icon: fa-solid fa-home
       url: /
     - name: 分类
       icon: fa-solid fa-folder-open
@@ -103,51 +103,52 @@ navbar:
       icon: fa-solid fa-link
       url: friends/
     - name: 关于
-      icon: fa-solid fa-info-circle
+      icon: fa-solid fa-user
       url: about/
-  search: Search...   # Search bar placeholder
+  search: 搜索文章...   # Search bar placeholder
 ############################### Navigation Bar ############################### > end
 
 
 ############################### Cover ############################### > start
 cover:
   height_scheme: full # full, half
-  layout_scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
+  layout_scheme: search # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
   display:
     home: true
-    archive: true
+    archive: false
     others: false # can be written in front-matter 'cover: true'
-  background: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
+  # background: https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+  background: https://i.imgur.com/jHaXPIR.jpeg
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
-  logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
-  title: 'Volantis'
-  subtitle: ''
-  search: A Wonderful Theme for Hexo # search bar placeholder
+  logo: https://i.imgur.com/qGK7Qjn.png # 使用您的头像作为封面logo
+  title: 'zanyyan的漂流瓶'
+  subtitle: 'ぶどう色の海 - 记录生活，分享思考'
+  search: 搜索文章、标签或分类... # search bar placeholder
   features:
-    - name: 文档
+    - name: 关于我
       icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
-      url: /v4/getting-started/
-    - name: 帮助
+      img: volantis-static/media/twemoji/assets/svg/1f464.svg
+      url: /about/
+    - name: 文章归档
       icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
-      url: faqs/
-    - name: 示例
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f396.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
-      url: /examples/
-    - name: 社区
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f389.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
-      url: /contributors/
-    - name: 博客
-      icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f4f0.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
+      img: volantis-static/media/twemoji/assets/svg/1f4c5.svg
       url: /archives/
-    - name: 源码
+    - name: 文章分类
       icon: #
-      img: volantis-static/media/twemoji/assets/svg/1f9ec.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
-      url: https://github.com/volantis-x/hexo-theme-volantis/
+      img: volantis-static/media/twemoji/assets/svg/1f5c2.svg
+      url: /categories/
+    - name: 标签云
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f516.svg
+      url: /tags/
+    - name: GitHub
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f4bb.svg
+      url: https://github.com/user14412
+    - name: Bilibili
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f4fa.svg
+      url: https://space.bilibili.com/480211402
 ############################### Cover ############################### > end
 
 pages:
@@ -172,7 +173,7 @@ article:
     # show split line or not
     line_style: solid # hidden, solid, dashed, dotted
     # show author
-    author: false # true, false
+    author: true # true, false
     # show readmore button
     readmore: auto # auto, always
   # 文章详情页面的文章卡片本体布局方案
@@ -209,13 +210,13 @@ article:
       # ----------------
       # 版权声明组件 (for layout: post)
       copyright:
-        enable: false
+        enable: true
         permalink: '本文永久链接是：'
         content:
           - '博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议'
           - permalink
          # 自定义版权组件：精细到文章的版权声明
-        custom: false # 开启后替代上方内容的版权显示
+        custom: true # 开启后替代上方内容的版权显示
         customData:
           default: type1  # 默认授权声明
           #############################
@@ -260,9 +261,9 @@ article:
       # 默认文章作者（可在 _data/author.yaml 中增加其他作者，并在 front-matter 中设置）
       # https://volantis.js.org/advanced-settings/#多人协同
       author:
-        avatar: volantis-static/media/org.volantis/blog/favicon/apple-touch-icon.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png
-        name: 请设置文章作者
-        url: /
+        avatar: https://i.imgur.com/3mQeOXJ.png # 使用您在主配置中设置的头像
+        name: 昝研
+        url: https://www.zanyan.xyz
       # 文章创建日期
       date:
         icon: fa-solid fa-calendar-alt
@@ -313,8 +314,12 @@ article:
 ############################### Comments ############################### > start
 comments:
   title: <i class='fa-solid fa-comments'></i> 评论
-  subtitle:
-  service: giscus
+  subtitle: 欢迎留下您的想法和建议 💭
+  service: # 如需开启评论，请取消注释下方配置并填写相关信息
+  # 推荐使用 giscus，步骤：
+  # 1. 在 https://giscus.app/ 配置您的仓库
+  # 2. 取消下方注释并填写配置信息
+  # service: giscus
   # 可选评论系统 #
 
   # artalk
@@ -500,21 +505,21 @@ sidebar:
     blogger:
       class: blogger
       display: [desktop, mobile] # [desktop, mobile]
-      avatar: volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
-      shape: rectangle # circle, rectangle
+      avatar: https://i.imgur.com/gSQdasz.jpeg # 使用您的头像
+      shape: circle # circle, rectangle
       url: /about/
-      title:
-      subtitle:
+      title: 昝研
+      subtitle: ぶどう色の海
       jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
       social:
         - icon: fa-solid fa-rss
           url: /atom.xml
         - icon: fa-solid fa-envelope
-          url: mailto:me@xxx.com
+          url: mailto:2585432372@qq.com
         - icon: fab fa-github
-          url: https://github.com/volantis-x/
-        - icon: fa-solid fa-headphones-alt
-          url: /
+          url: https://github.com/user14412
+        - icon: fab fa-bilibili
+          url: https://space.bilibili.com/480211402
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
@@ -1106,18 +1111,18 @@ color_scheme:
   # ------------
   # 通用颜色
   common:
-    # 主题色
-    theme: '#3dd9b6'
+    # 主题色 - 使用蓝紫色调
+    theme: '#6366f1'
     # 链接色
-    link: '#2092ec'
+    link: '#2563eb'
     # 按钮色
-    button: '#44D7B6'
+    button: '#6366f1'
     # 鼠标放到交互元素上时的色
-    hover: '#ff5722'
+    hover: '#8b5cf6'
     # 主题色块内部的文字颜色
     inner: '#fff'
     # 选中区域文字的背景颜色
-    selection: 'alpha(#2196f3, 0.2)'
+    selection: 'alpha(#6366f1, 0.2)'
   # ------------
   # 亮色主题（默认）
   light:

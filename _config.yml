@@ -119,3 +119,24 @@ deploy:
 #   disable: false
 #   provider: Disqus
 #   disqus_shortname: your-disqus-shortname
+
+# Feed RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+
+# Sitemap
+sitemap:
+  path: sitemap.xml
+  rel: false
+
+# Search
+search:
+  path: search.xml
+  field: post
+  content: true
