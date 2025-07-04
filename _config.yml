@@ -6,10 +6,17 @@
 title: zanyyan的漂流瓶
 subtitle: 'ぶどう色の海'
 description: 'A blog about my life, thoughts, and experiences.'
-keywords:
-author: Yan Zan
-language: zh-CN
+keywords: 学习 生活
+author: 昝研
+email: 2585432372@qq.com
+language: zh-Hans
 timezone: 'Asia/Shanghai'
+
+social:
+  GitHub: https://github.com/user14412
+  Bilibili: https://space.bilibili.com/480211402
+
+favicon: /source/images/favicon.ico
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -97,7 +104,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
