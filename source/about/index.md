@@ -23,7 +23,7 @@ layout: page
 
 - 📧 Email: [2585432372@qq.com](mailto:2585432372@qq.com)
 - 🐙 GitHub: [user14412](https://github.com/user14412)
-- 📺 Bilibili: [我的B站](https://space.bilibili.com/480211402)
+- 📺 Bilibili: [我的B站](https://space.bilibili.com)
 
 感谢您的访问！如果您有任何问题或想法，欢迎通过上述方式联系我。title: about
 date: 2025-07-04 23:45:02

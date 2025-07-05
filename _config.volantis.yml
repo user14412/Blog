@@ -151,7 +151,7 @@ cover:
     - name: Bilibili
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f4fa.svg
-      url: https://space.bilibili.com/480211402
+      url: https://space.bilibili.com
 ############################### Cover ############################### > end
 
 pages:
@@ -523,7 +523,7 @@ sidebar:
         - icon: fab fa-github
           url: https://github.com/user14412
         - icon: fab fa-bilibili
-          url: https://space.bilibili.com/480211402
+          url: https://space.bilibili.com
     # ---------------------------------------
     # toc widget (valid only in articles)
     toc:
@@ -649,7 +649,7 @@ site_footer:
     - icon: fab fa-github
       url: https://github.com/user14412
     - icon: fab fa-bilibili
-      url: https://space.bilibili.com/480211402
+      url: https://space.bilibili.com
   # site source
   source: https://github.com/user14412
   # analytics using leancloud
