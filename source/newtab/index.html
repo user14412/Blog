@@ -18,8 +18,8 @@ layout: false
       height: 100%;
       margin: 0;
       padding: 0;
-      background-color: #fff;
       overflow: hidden;
+      transition: background-color 0.3s;
     }
 
     body {
@@ -27,6 +27,10 @@ layout: false
       justify-content: center;
       align-items: center;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #fff;
     }
 
     .container {
@@ -45,6 +49,7 @@ layout: false
       color: #333;
       text-align: center;
       margin-bottom: 25px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
     .search-box {
@@ -60,11 +65,15 @@ layout: false
       box-sizing: border-box;
       outline: none;
       -webkit-appearance: none;
-      transition: border-color 0.2s;
+      appearance: none;
+      transition: all 0.25s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     #searchInput:focus {
       border-color: #aaa;
+      transform: scale(1.02);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .shortcuts {
@@ -88,10 +97,16 @@ layout: false
       border-radius: 12px;
       margin-bottom: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
     }
 
     .shortcut span {
       font-size: 0.9em;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    #bg-upload {
+      display: none;
     }
   </style>
 </head>
@@ -117,51 +132,96 @@ layout: false
         <img src="https://chat.openai.com/apple-touch-icon.png" alt="ChatGPT">
         <span>ChatGPT</span>
       </a>
-      <a class="shortcut" href="https://zh.101-e.ru/" target="_blank">
+      <a class="shortcut" href="https://z-lib.io/" target="_blank">
         <img src="https://cdn.jsdelivr.net/gh/wbt5/zlib-icon@main/zlib-128.png" alt="Z-Lib">
-        <span>Z-</span>
+        <span>Z-Lib</span>
       </a>
     </div>
   </div>
+
+  <input type="file" id="bg-upload" accept="image/*">
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const searchForm = document.getElementById('searchForm');
       const searchInput = document.getElementById('searchInput');
       const container = document.querySelector('.container');
+      const bgUpload = document.getElementById('bg-upload');
+      const body = document.body;
 
-      // 聚焦搜索框
+      let longPressTimer;
+
+      // 1. 加载背景
+      const savedBg = localStorage.getItem('backgroundImage');
+      if (savedBg) {
+        body.style.backgroundImage = `url(${savedBg})`;
+      }
+
+      // 2. 聚焦搜索框
       searchInput.focus();
 
-      // 处理搜索逻辑
+      // 3. 处理搜索逻辑 (简化：始终搜索)
       searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const query = searchInput.value.trim();
         if (!query) return;
-
-        // 检查是否为URL
-        try {
-          const url = new URL(query.includes('://') ? query : `http://${query}`);
-          // 如果包含.并且不是纯数字IP，则认为是有效URL
-          if (url.hostname.includes('.')) {
-            window.open(url.href, '_blank');
-          } else {
-            throw new Error('Invalid URL');
-          }
-        } catch (error) {
-          // 不是URL，执行搜索
-          const searchURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-          window.open(searchURL, '_blank');
-        }
+        const searchURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        window.open(searchURL, '_blank');
         searchInput.value = '';
       });
 
-      // 双击空白处聚焦
-      document.body.addEventListener('dblclick', (e) => {
-        // 如果事件目标是container本身或body，则聚焦
-        if (e.target === document.body || e.target === container) {
+      // 4. 双击空白处聚焦
+      body.addEventListener('dblclick', (e) => {
+        if (e.target === body || e.target === container) {
           searchInput.focus();
         }
+      });
+
+      // 5. 长按修改背景
+      body.addEventListener('mousedown', (e) => {
+        if (e.target === body || e.target === container) {
+          longPressTimer = setTimeout(() => {
+            bgUpload.click();
+          }, 800); // 800ms算作长按
+        }
+      });
+
+      body.addEventListener('mouseup', () => {
+        clearTimeout(longPressTimer);
+      });
+      body.addEventListener('mouseout', () => {
+        clearTimeout(longPressTimer);
+      });
+      
+      // 兼容移动端触摸事件
+      body.addEventListener('touchstart', (e) => {
+        if (e.target === body || e.target === container) {
+          longPressTimer = setTimeout(() => {
+            bgUpload.click();
+          }, 800);
+        }
+      });
+
+      body.addEventListener('touchend', () => {
+        clearTimeout(longPressTimer);
+      });
+      body.addEventListener('touchmove', () => {
+        clearTimeout(longPressTimer);
+      });
+
+
+      // 6. 处理背景图片上传
+      bgUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const base64String = event.target.result;
+          localStorage.setItem('backgroundImage', base64String);
+          body.style.backgroundImage = `url(${base64String})`;
+        };
+        reader.readAsDataURL(file);
       });
     });
   </script>
