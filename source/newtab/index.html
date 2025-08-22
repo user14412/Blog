@@ -5,49 +5,24 @@ layout: false
 <!DOCTYPE html>
 <html lang="zh">
 
-<body>
-  <div class="center-wrapper" id="centerWrapper">
-    <div class="container">
-      <div class="search-title">Search</div>
-      <div class="search-box">
-        <input type="text" placeholder="搜索或输入网址" id="searchInput">
-      </div>
-      <div class="shortcuts" id="shortcuts">
-        <!-- 快捷方式内容 -->
-        <a class="shortcut" href="https://pixiv.net" target="_blank">
-          <img src="https://s.pximg.net/common/images/apple-touch-icon.png" alt="pixiv">
-          <span>pixiv</span>
-        </a>
-        <a class="shortcut" href="https://gemini.google.com" target="_blank">
-          <img src="https://www.gstatic.com/lamda/images/gemini_favicon_v1_64.png" alt="Gemini">
-          <span>Gemini</span>
-        </a>
-        <a class="shortcut" href="https://chat.openai.com" target="_blank">
-          <img src="https://chat.openai.com/apple-touch-icon.png" alt="ChatGPT">
-          <span>ChatGPT</span>
-        </a>
-        <a class="shortcut" href="https://z-lib.io" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/wbt5/zlib-icon@main/zlib-128.png" alt="Z-Lib">
-          <span>Z-Lib</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <script src="app.js"></script>
-  <script>
-  // 双击空白处聚焦搜索框，避免与快捷方式点击冲突
-  document.getElementById('centerWrapper').addEventListener('dblclick', function(e) {
-    // 如果双击的是快捷方式或其子元素，则不触发
-    let shortcuts = document.getElementById('shortcuts');
-    if (shortcuts.contains(e.target)) return;
-    document.getElementById('searchInput').focus();
-  });
-  </script>
-</body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      text-align: center;
+      background: #fff;
+    }
+
     h1 {
       margin-top: 80px;
       font-size: 1.8em;
       color: #333;
+      font-style: italic;
+      /* 斜体效果 */
     }
 
     #search-box {
@@ -60,102 +35,97 @@ layout: false
       padding: 0 15px;
       font-size: 16px;
       outline: none;
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+      display: block;
+      margin-top: calc(50vh - 20px);
+      /* 垂直居中 */
+    }
+
+    select {
+      margin-top: 20px;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .icons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .icons a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .icons img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Search</h1>
+  <form id="searchForm" action="https://www.google.com/search" method="get">
+    <input id="search-box" type="text" name="q" placeholder="搜索或输入网址">
+    <select id="search-engine" name="search-engine">
+      <option value="https://www.google.com/search">Google</option>
+      <option value="https://www.bing.com/search">Bing</option>
+      <option value="https://www.baidu.com/s?wd=">Baidu</option>
+      <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+    </select>
+    <input type="submit" value="Search">
+  </form>
+
+  <div class="icons">
+    <a href="https://www.pixiv.net/"><img
+        src="https://www.google.com/s2/favicons?sz=64&domain=pixiv.net"><span>pixiv</span></a>
+    <a href="https://gemini.google.com/"><img
+        src="https://www.google.com/s2/favicons?sz=64&domain=gemini.google.com"><span>Gemini</span></a>
+    <a href="https://chat.openai.com/"><img
+        src="https://www.google.com/s2/favicons?sz=64&domain=openai.com"><span>ChatGPT</span></a>
+    <a href="https://zh.101-e.ru/"><img
+        src="https://www.google.com/s2/favicons?sz=64&domain=zh.101-e.ru"><span>Z-</span></a>
+  </div>
+
+  <script>
+    // 页面加载完成时自动聚焦搜索框
+    window.onload = () => {
+      document.getElementById('search-box').focus();
+    };
+
+    // 下滑时也能触发聚焦
+    window.addEventListener('scroll', () => {
+      document.getElementById('search-box').focus();
+    });
+
+    // 更换搜索引擎
+    document.getElementById('search-engine').addEventListener('change', function () {
+      const selectedEngine = this.value;
+      document.getElementById('searchForm').action = selectedEngine;
+    });
+
+    // 防止触发下拉刷新
+    document.body.addEventListener('touchstart', function (e) {
+      if (window.scrollY === 0) {
+        e.preventDefault();  // 禁止下拉刷新
       }
-      body {
-        min-height: 100vh;
-        font-family: Arial, sans-serif;
-        background: #fff;
-        height: 100%;
+    });
+
+    document.body.addEventListener('touchmove', function (e) {
+      if (window.scrollY === 0) {
+        e.preventDefault();  // 禁止下拉刷新
       }
-      .center-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        width: 100vw;
-      }
-      .container {
-        max-width: 600px;
-        width: 100vw;
-        box-sizing: border-box;
-      }
-      .search-title {
-        text-align: center;
-        font-size: 2.2rem;
-        margin-bottom: 2.2rem;
-        color: #222;
-        font-style: italic;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      .search-box {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 2.5rem;
-      }
-      .search-box input {
-        width: 100%;
-        max-width: 95vw;
-        padding: 1.1rem 1.2rem;
-        font-size: 1.15rem;
-        border: 2px solid #ddd;
-        border-radius: 20px;
-        outline: none;
-        transition: border 0.2s;
-        box-sizing: border-box;
-      }
-      .search-box input:focus {
-        border: 2px solid #888;
-      }
-      .shortcuts {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2.2rem;
-        margin-top: 2.2rem;
-      }
-      .shortcut {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: #222;
-        width: 72px;
-        user-select: none;
-      }
-      .shortcut img {
-        width: 56px;
-        height: 56px;
-        border-radius: 14px;
-        margin-bottom: 8px;
-        background: #f5f5f5;
-        object-fit: cover;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      }
-      .shortcut span {
-        font-size: 0.98rem;
-        margin-top: 2px;
-        white-space: nowrap;
-      }
-      @media (max-width: 600px) {
-        .container {
-          max-width: 100vw;
-          padding: 0 0.5rem;
-        }
-        .search-title {
-          font-size: 2rem;
-        }
-        .shortcut {
-          width: 64px;
-        }
-        .shortcut img {
-          width: 48px;
-          height: 48px;
-        }
-      }
-    </style>
+    });
+  </script>
+</body>
+
+</html>
