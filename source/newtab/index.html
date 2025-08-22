@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Tab</title>
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+    background: #fff;
+  }
+  h1 {
+    margin-top: 80px;
+    font-size: 1.8em;
+    color: #333;
+  }
+  #search-box {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+  }
+  .icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+  .icons a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .icons img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+  <h1>Search</h1>
+  <form action="https://www.google.com/search" method="get">
+    <input id="search-box" type="text" name="q" placeholder="搜索或输入网址">
+  </form>
+
+  <div class="icons">
+    <a href="https://www.pixiv.net/"><img src="https://www.google.com/s2/favicons?sz=64&domain=pixiv.net"><span>pixiv</span></a>
+    <a href="https://gemini.google.com/"><img src="https://www.google.com/s2/favicons?sz=64&domain=gemini.google.com"><span>Gemini</span></a>
+    <a href="https://chat.openai.com/"><img src="https://www.google.com/s2/favicons?sz=64&domain=openai.com"><span>ChatGPT</span></a>
+    <a href="https://z-lib.io/"><img src="https://www.google.com/s2/favicons?sz=64&domain=z-lib.io"><span>Z-</span></a>
+  </div>
+
+<script>
+// 下滑自动聚焦搜索框
+window.addEventListener('scroll', () => {
+  document.getElementById('search-box').focus();
+});
+</script>
+</body>
+</html>
+
