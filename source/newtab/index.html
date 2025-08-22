@@ -68,6 +68,12 @@ layout: false
       appearance: none;
       transition: all 0.25s ease-in-out;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      background-color: rgba(255, 255, 255, 0.9);
+      /* 半透明背景 */
+    }
+
+    #searchInput::placeholder {
+      color: #666;
     }
 
     #searchInput:focus {
@@ -132,8 +138,8 @@ layout: false
         <img src="https://www.google.com/s2/favicons?sz=64&domain=openai.com" alt="ChatGPT">
         <span>ChatGPT</span>
       </a>
-      <a class="shortcut" href="https://z-lib.io/" target="_blank">
-        <img src="https://zh.101-e.ru/favicon.ico" alt="Z-Lib">
+      <a class="shortcut" href="https://zh.101-e.ru/" target="_blank">
+        <img src="https://www.google.com/s2/favicons?sz=64&domain=z-lib.org" alt="Z-Lib">
         <span>Z-Lib</span>
       </a>
     </div>
@@ -182,7 +188,7 @@ layout: false
         if (e.target === body || e.target === container) {
           longPressTimer = setTimeout(() => {
             bgUpload.click();
-          }, 800); // 800ms算作长按
+          }, 1600); // 1600ms算作长按
         }
       });
 
