@@ -5,125 +5,164 @@ layout: false
 <!DOCTYPE html>
 <html lang="zh">
 
+<!DOCTYPE html>
+<html lang="zh">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>New Tab</title>
   <style>
+    html,
     body {
+      height: 100%;
       margin: 0;
-      font-family: sans-serif;
-      text-align: center;
-      background: #fff;
+      padding: 0;
+      background-color: #fff;
+      overflow: hidden;
     }
 
-    h1 {
-      margin-top: 80px;
-      font-size: 1.8em;
-      color: #333;
-      font-style: italic;
-      /* 斜体效果 */
-    }
-
-    #search-box {
-      margin: 20px auto;
-      width: 80%;
-      max-width: 500px;
-      height: 40px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      padding: 0 15px;
-      font-size: 16px;
-      outline: none;
-      display: block;
-      margin-top: calc(50vh - 20px);
-      /* 垂直居中 */
-    }
-
-    select {
-      margin-top: 20px;
-      padding: 8px;
-      font-size: 14px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .icons {
-      margin-top: 30px;
+    body {
       display: flex;
       justify-content: center;
-      gap: 25px;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    .icons a {
-      text-decoration: none;
+    .container {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      box-sizing: border-box;
+      margin-top: -50px;
+      /* 视觉上微调，使其更居中 */
+    }
+
+    .search-title {
+      font-size: 3em;
+      font-weight: 300;
+      font-style: italic;
       color: #333;
-      font-size: 14px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      width: 100%;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 1.1em;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      box-sizing: border-box;
+      outline: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s;
+    }
+
+    #searchInput:focus {
+      border-color: #aaa;
+    }
+
+    .shortcuts {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 35px;
+    }
+
+    .shortcut {
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-decoration: none;
+      color: #333;
     }
 
-    .icons img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 5px;
+    .shortcut img {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .shortcut span {
+      font-size: 0.9em;
     }
   </style>
 </head>
 
 <body>
-  <h1>Search</h1>
-  <form id="searchForm" action="https://www.google.com/search" method="get">
-    <input id="search-box" type="text" name="q" placeholder="搜索或输入网址">
-    <select id="search-engine" name="search-engine">
-      <option value="https://www.google.com/search">Google</option>
-      <option value="https://www.bing.com/search">Bing</option>
-      <option value="https://www.baidu.com/s?wd=">Baidu</option>
-      <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
-    </select>
-    <input type="submit" value="Search">
-  </form>
-
-  <div class="icons">
-    <a href="https://www.pixiv.net/"><img
-        src="https://www.google.com/s2/favicons?sz=64&domain=pixiv.net"><span>pixiv</span></a>
-    <a href="https://gemini.google.com/"><img
-        src="https://www.google.com/s2/favicons?sz=64&domain=gemini.google.com"><span>Gemini</span></a>
-    <a href="https://chat.openai.com/"><img
-        src="https://www.google.com/s2/favicons?sz=64&domain=openai.com"><span>ChatGPT</span></a>
-    <a href="https://zh.101-e.ru/"><img
-        src="https://www.google.com/s2/favicons?sz=64&domain=zh.101-e.ru"><span>Z-</span></a>
+  <div class="container">
+    <div class="search-title">Search</div>
+    <form id="searchForm" action="https://www.google.com/search" method="get" target="_blank">
+      <div class="search-box">
+        <input type="text" name="q" id="searchInput" placeholder="搜索或输入网址" autocomplete="off">
+      </div>
+    </form>
+    <div class="shortcuts">
+      <a class="shortcut" href="https://www.pixiv.net/" target="_blank">
+        <img src="https://s.pximg.net/common/images/apple-touch-icon.png" alt="pixiv">
+        <span>pixiv</span>
+      </a>
+      <a class="shortcut" href="https://gemini.google.com/" target="_blank">
+        <img src="https://www.gstatic.com/lamda/images/gemini_favicon_v1_64.png" alt="Gemini">
+        <span>Gemini</span>
+      </a>
+      <a class="shortcut" href="https://chat.openai.com/" target="_blank">
+        <img src="https://chat.openai.com/apple-touch-icon.png" alt="ChatGPT">
+        <span>ChatGPT</span>
+      </a>
+      <a class="shortcut" href="https://zh.101-e.ru/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/wbt5/zlib-icon@main/zlib-128.png" alt="Z-Lib">
+        <span>Z-</span>
+      </a>
+    </div>
   </div>
 
   <script>
-    // 页面加载完成时自动聚焦搜索框
-    window.onload = () => {
-      document.getElementById('search-box').focus();
-    };
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchForm = document.getElementById('searchForm');
+      const searchInput = document.getElementById('searchInput');
+      const container = document.querySelector('.container');
 
-    // 下滑时也能触发聚焦
-    window.addEventListener('scroll', () => {
-      document.getElementById('search-box').focus();
-    });
+      // 聚焦搜索框
+      searchInput.focus();
 
-    // 更换搜索引擎
-    document.getElementById('search-engine').addEventListener('change', function () {
-      const selectedEngine = this.value;
-      document.getElementById('searchForm').action = selectedEngine;
-    });
+      // 处理搜索逻辑
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (!query) return;
 
-    // 防止触发下拉刷新
-    document.body.addEventListener('touchstart', function (e) {
-      if (window.scrollY === 0) {
-        e.preventDefault();  // 禁止下拉刷新
-      }
-    });
+        // 检查是否为URL
+        try {
+          const url = new URL(query.includes('://') ? query : `http://${query}`);
+          // 如果包含.并且不是纯数字IP，则认为是有效URL
+          if (url.hostname.includes('.')) {
+            window.open(url.href, '_blank');
+          } else {
+            throw new Error('Invalid URL');
+          }
+        } catch (error) {
+          // 不是URL，执行搜索
+          const searchURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+          window.open(searchURL, '_blank');
+        }
+        searchInput.value = '';
+      });
 
-    document.body.addEventListener('touchmove', function (e) {
-      if (window.scrollY === 0) {
-        e.preventDefault();  // 禁止下拉刷新
-      }
+      // 双击空白处聚焦
+      document.body.addEventListener('dblclick', (e) => {
+        // 如果事件目标是container本身或body，则聚焦
+        if (e.target === document.body || e.target === container) {
+          searchInput.focus();
+        }
+      });
     });
   </script>
 </body>
