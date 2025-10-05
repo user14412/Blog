@@ -641,8 +641,8 @@ tag_plugins:
 
 ############################### Site Footer ############################### > start
 site_footer:
-  # layout of footer: [aplayer, social, license, info, copyright]
-  layout: [aplayer, social, license, analytics, info, copyright]
+  # layout of footer: [netease_music, social, license, info, copyright]
+  layout: [netease_music, social, license, analytics, info, copyright]
   social:
     - icon: fa-solid fa-envelope
       url: mailto:2585432372@qq.com
@@ -812,10 +812,11 @@ plugins:
       - volantis-static/media/wallpaper/minimalist/2020/054.webp
       - volantis-static/media/wallpaper/minimalist/2020/056.webp
 
-  # APlayer is only available in mainland China.
-  # APlayer config: https://github.com/metowolf/MetingJS
+  # 网易云音乐外链播放器
+  # 使用网易云音乐官方外链播放器替代APlayer
   aplayer:
-    enable: true
+    enable: false  # 禁用原有的APlayer
+    # 原有配置保留备用
     js:
       aplayer: volantis-static/libs/aplayer/dist/APlayer.min.js # https://unpkg.com/aplayer@1.10/dist/APlayer.min.js
       meting: volantis-static/libs/meting/dist/Meting.min.js # https://unpkg.com/meting@2.0/dist/Meting.min.js
@@ -834,6 +835,11 @@ plugins:
     list_max_height: 320px # list max height
     list_folded: true
     autoHide: true    # hide automaticaly
+
+  # 网易云音乐外链播放器
+  netease_music:
+    enable: true
+    iframe: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=828634897&auto=1&height=430"></iframe>'
 
   # Pjax
   pjax:
