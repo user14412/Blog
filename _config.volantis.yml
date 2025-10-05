@@ -641,8 +641,8 @@ tag_plugins:
 
 ############################### Site Footer ############################### > start
 site_footer:
-  # layout of footer: [netease_music, social, license, info, copyright]
-  layout: [netease_music, social, license, analytics, info, copyright]
+  # layout of footer: [aplayer, social, license, info, copyright]
+  layout: [aplayer, social, license, analytics, info, copyright]
   social:
     - icon: fa-solid fa-envelope
       url: mailto:2585432372@qq.com
@@ -812,10 +812,10 @@ plugins:
       - volantis-static/media/wallpaper/minimalist/2020/054.webp
       - volantis-static/media/wallpaper/minimalist/2020/056.webp
 
-  # 网易云音乐外链播放器
-  # 使用网易云音乐官方外链播放器替代APlayer
+  # APlayer 音乐播放器
+  # APlayer config: https://github.com/metowolf/MetingJS
   aplayer:
-    enable: false  # 禁用原有的APlayer
+    enable: true  # 启用APlayer
     # 原有配置保留备用
     js:
       aplayer: volantis-static/libs/aplayer/dist/APlayer.min.js # https://unpkg.com/aplayer@1.10/dist/APlayer.min.js
@@ -824,7 +824,7 @@ plugins:
     # Required
     server: netease   # netease, tencent, kugou, xiami, baidu
     type: playlist    # song, playlist, album, search, artist
-    id: 3175833810    # song id / playlist id / album id / search keyword
+    id: 828634897     # 你的播放列表ID
     # Optional
     fixed: false      # enable fixed mode
     theme: '#6366f1'  # main color - 使用主题色
@@ -836,10 +836,6 @@ plugins:
     list_folded: true
     autoHide: true    # hide automaticaly
 
-  # 网易云音乐外链播放器
-  netease_music:
-    enable: true
-    iframe: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=828634897&auto=1&height=430"></iframe>'
 
   # Pjax
   pjax:
